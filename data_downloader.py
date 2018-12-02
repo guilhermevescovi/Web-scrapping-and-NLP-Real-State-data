@@ -49,13 +49,16 @@ def downloader():
             if not list_features_all[i] == 'Not good':
                 link = links[i].a["href"]
                 page_soup = bs4.BeautifulSoup(requests.get(link).text)
-                description = page_soup.findAll("div", {"class":"col-xs-12 description-text text-compressed"})[0].text
+                try:
+                    description = page_soup.findAll("div", {"class":"col-xs-12 description-text text-compressed"})[0].text
+                except IndexError:
+                    description = None
                 if description != None:
                     descriptions_list.append(str(description))
                 else:
                     descriptions_list.append('NaN')
                 list_features_all_c.append(list_features_all[i])
         page_number += 1
-        time.sleep(1)
+        time.sleep(0.8)
         
     return(descriptions_list,list_features_all_c)
