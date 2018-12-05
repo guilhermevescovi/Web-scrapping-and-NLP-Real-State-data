@@ -10,12 +10,12 @@ def cleaner(d):
     # set stopwords
     try:
         # we try to define it
-        stop_words = set(nltk.corpus.stopwords.words('english'))
+        stop_words = set(nltk.corpus.stopwords.words('italian'))
     except LookupError:
         # and if it's not present on the computer we download it
         nltk.download('stopwords')
         # and define it
-        stop_words = set(nltk.corpus.stopwords.words('english'))
+        stop_words = set(nltk.corpus.stopwords.words('italian'))
     # set punctuation
     set_punt = list(string.punctuation)
     
@@ -41,18 +41,22 @@ def cleaner(d):
         cleaned.append(cleaned_description)
     return cleaned
 
+# we compute the tfIdf
 def tfIdf_calculator(d):
     dic_count = defaultdict(lambda :defaultdict(int))
     nd = len(d)
     
+    # we compute how many occurance of a word there are in a document
     for i in range(nd):
         for e in d[i]:
             dic_count[e][i]+=1
             
+    # we compute the tfIdf itself and store it in a diconary
     for w in dic_count.keys():
         df = len(list(dic_count[w].keys()))
         idf = math.log10(nd/df)
         for e in dic_count[w]:
             dic_count[w][e]*=idf
-        
+    
+    # we return everything as a dataframe
     return pandas.DataFrame(dic_count)
