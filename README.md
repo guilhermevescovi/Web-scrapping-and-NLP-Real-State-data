@@ -1,5 +1,5 @@
 # Does basic house information reflect house's description?
-## Algorithmic Methods for Data Minning - Homework 4
+## Algorithmic Methods for Data Mining - Homework 4
 #### Davide Facchinelli, Shahzad Amin and Guilherme Vescovi Nicchio
 ##### 03/12/2018
 
