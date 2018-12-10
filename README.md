@@ -16,5 +16,5 @@ Each section of the notebook but the first start with the loading of some files.
 Repository files description
 ======
 `Homework_4.ipynb`	
-Main file with the work explanation to perform the analisys. We import most of the functions from the other .py files in the folder.
+Main file with the work explanation to perform the analisys. We import most of the functions from the other .py files in the folder. There is also a password3.txt file in the folder, we use it during the second part of the work.
 
